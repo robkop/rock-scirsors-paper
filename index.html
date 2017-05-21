@@ -1,0 +1,100 @@
+<html lang="en">
+  <head>
+    <title>Rock, paper and scisors</title>
+    <style>
+      .choose{
+        float: left;
+        border: 2px solid black;
+        width: 200px;
+        height: 100px;
+        font-size: 40px;
+        box-sizing: border-box;
+      }
+      .result{
+        clear: both;
+        border: 2px solid black;
+        width: 600px;
+        font-size: 50px;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="rock" class="choose">
+      Rock
+    </div>
+    <div id="paper" class="choose">
+      Paper
+    </div>
+    <div id="scisors" class="choose">
+      Scisors
+    </div>
+
+    <div class="result">
+      <p id="computer"></p>
+      <p id="rsd"></p>
+    </div>
+    <script>
+      var rock = document.getElementById('rock'); //1
+      var paper = document.getElementById('paper'); //2
+      var scisors = document.getElementById('scisors'); //3
+      var text = document.getElementById('computer');
+      var text2 = document.getElementById('rsd');
+
+      var teksty = {
+        remis: "Draw",
+        cwon: "You loose!",
+        cloose: "You won!"
+      };
+
+      rock.addEventListener('click',userRock);
+      paper.addEventListener('click',userPaper);
+      scisors.addEventListener('click',userScisors);
+
+
+      function userRock() {
+        var computer = Math.floor((Math.random() * 3)+1);
+        console.log(computer);
+        if (computer == 1) {
+          text.innerHTML = "Computer choose ROCK.";
+          text2.innerHTML = teksty.remis;
+        } else if (computer == 2) {
+          text.innerHTML = "Computer choose PAPER.";
+          text2.innerHTML = teksty.cwon;
+        } else if (computer == 3) {
+          text.innerHTML = "Computer choose SCISORS.";
+          text2.innerHTML = teksty.cloose;
+        }
+      };
+      function userPaper(){
+        var computer = Math.floor((Math.random() * 3)+1);
+        console.log(computer);
+        if (computer == 1) {
+          text.innerHTML = "Computer choose ROCK.";
+          text2.innerHTML = teksty.cloose;
+        } else if (computer == 2) {
+          text.innerHTML = "Computer choose PAPER.";
+          text2.innerHTML = teksty.remis;
+        } else if (computer == 3) {
+          text.innerHTML = "Computer choose SCISORS.";
+          text2.innerHTML = teksty.cwon;
+        }
+      };
+      function userScisors(){
+        var computer = Math.floor((Math.random() * 3)+1);
+        console.log(computer);
+        if (computer == 1) {
+          text.innerHTML = "Computer choose ROCK.";
+          text2.innerHTML = teksty.cwon;
+        } else if (computer == 2) {
+          text.innerHTML = "Computer choose PAPER.";
+          text2.innerHTML = teksty.cloose;
+        } else if (computer == 3) {
+          text.innerHTML = "Computer choose SCISORS.";
+          text2.innerHTML = teksty.remis;
+        }
+      };
+
+    </script>
+  </body>
+</html>
